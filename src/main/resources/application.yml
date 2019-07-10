@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    master:
+      max-idle: 10
+      min-idle: 5
+      password: 123456
+      initial-size: 5
+      max-wait: 10000
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/ruoyi?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+      username: root
+    slave:
+      max-idle: 10
+      min-idle: 5
+      password: 123456
+      initial-size: 5
+      max-wait: 10000
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/ry?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+      username: root
+      enabled: true
+
+
+server:
+  port: 6060
+# MyBatis
+mybatis:
+  # 搜索指定包别名
+  typeAliasesPackage: com.lovecyy
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 加载全局的配置文件
+  configLocation: classpath:mybatis/mybatis-config.xml
