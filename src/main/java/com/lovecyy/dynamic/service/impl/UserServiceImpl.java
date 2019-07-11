@@ -1,5 +1,6 @@
 package com.lovecyy.dynamic.service.impl;
 
+import com.lovecyy.dynamic.annotation.DataScope;
 import com.lovecyy.dynamic.annotation.DataSource;
 import com.lovecyy.dynamic.annotation.DataSourceType;
 import com.lovecyy.dynamic.mapper.UserMapper;
@@ -16,7 +17,9 @@ public class UserServiceImpl {
     private UserMapper userMapper;
 
     @DataSource(value = DataSourceType.SLAVE)
-    public List<User> list(){
-       return userMapper.list();
+    @DataScope
+    public List<User> list(User user){
+        List<User> list = userMapper.list(user);
+        return list;
     }
 }

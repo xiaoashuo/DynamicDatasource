@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface UserMapper {
 
-    public List<User> list();
+    public List<User> list(User user);
 
 }

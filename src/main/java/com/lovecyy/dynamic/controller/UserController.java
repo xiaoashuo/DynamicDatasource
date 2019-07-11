@@ -19,8 +19,8 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("list")
-    public List<User> list(){
-        List<User> list = userService.list();
+    public List<User> list(User user){
+        List<User> list = userService.list(new User());
         System.out.println(list);
         return list;
 
